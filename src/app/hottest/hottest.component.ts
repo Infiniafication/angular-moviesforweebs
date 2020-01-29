@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Config, ConfigService } from '../config.service';
 
 @Component({
   selector: 'app-hottest',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HottestComponent implements OnInit {
 
-  constructor() { }
+  constructor(private configService: ConfigService) { }
 
   ngOnInit() {
+    this.getMovies();
+  }
 
+  movies: Config;
+
+  getMovies() {
+    this.configService.getConfig().subscribe((data) => this.movies = data);
   }
 
 }
