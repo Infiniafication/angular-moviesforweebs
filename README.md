@@ -15,9 +15,9 @@ Tentative (requires experimentation):
 
 -------- Personal notes below this line --------
 TODO:
-1. Align the content properly!
-2. Add slightly more info on each card (e.g. rating, release year, genre).
-3. Make banner fancy.
+1. Add release year.
+2. Make banner fancy.
+3. Try implementing Material Angular.
 
 Maybes:
 1. Details page
