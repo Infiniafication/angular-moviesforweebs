@@ -11,17 +11,19 @@
           <div class="card-body">
             <div class="card-title">
               <h4>
-                
                 {{movie.title}} 
-                 
                 <small>{{movie.original_title}}</small>
-                <div *ngIf="movie.popularity >= 25">
-                  <span class="badge badge-danger"> Smokin' Hot </span> 
+                <div>
+                  <span class="badge badge-danger" *ngIf="movie.popularity >= 25"> Smokin' Hot </span> 
+                  <span *ngFor="let movieGenre of movie.genre_ids"> 
+                    <span *ngFor="let genre of genres.genres"> 
+                      <span class="badge badge-primary ml-1" *ngIf="movieGenre==genre.id"> {{genre.name}} </span> 
+                    </span>
+                  </span>
                 </div>
               </h4>
             </div>
             <div class="card-text">
-              
               {{movie.overview}}
             </div>
           </div>

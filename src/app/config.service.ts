@@ -42,9 +42,10 @@ export class ConfigService {
 
   constructor(private http: HttpClient) { }
 
-  // configUrl: string = 'https://api.themoviedb.org/3/genre/16/movies?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US';
-
+  // TODO: Refactor all hardcoded URLs
   configUrl: string = 'https://api.themoviedb.org/3/discover/movie?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16&with_original_language=ja';
+
+  genreUrl: string = 'https://api.themoviedb.org/3/genre/movie/list?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US';
   
   generateURL() {
 
@@ -52,6 +53,10 @@ export class ConfigService {
 
   getConfig() {
     return this.http.get<Config>(this.configUrl);
+  }
+
+  getGenre() {
+    return this.http.get<String[][]>(this.genreUrl);
   }
 
 }

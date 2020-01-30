@@ -12,12 +12,18 @@ export class HottestComponent implements OnInit {
 
   ngOnInit() {
     this.getMovies();
+    this.getGenres();
   }
 
   movies: Config;
+  genres: String[][];
 
   getMovies() {
     this.configService.getConfig().subscribe((data) => this.movies = data);
+  }
+
+  getGenres() {
+    this.configService.getGenre().subscribe((data) => this.genres = data);
   }
 
 }
