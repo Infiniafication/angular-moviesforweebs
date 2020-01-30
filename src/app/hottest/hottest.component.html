@@ -4,12 +4,26 @@
       <h4>All-time Popular</h4>
     </div>
 
-    <div class="row">
+    <div class="row row-cols-1">
       <div class="col" *ngFor="let movie of movies.results">
-        <div class="card text-dark" style="width: 18rem; height: 32rem;" >
+        <div class="card text-dark">
           <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="card-img-top" alt="...">
-          <div class="card-header" style="height: 8rem;">
-            <h4>{{movie.title}} <small>{{movie.original_title}}</small></h4>
+          <div class="card-body">
+            <div class="card-title">
+              <h4>
+                
+                {{movie.title}} 
+                 
+                <small>{{movie.original_title}}</small>
+                <div *ngIf="movie.popularity >= 25">
+                  <span class="badge badge-danger"> Smokin' Hot </span> 
+                </div>
+              </h4>
+            </div>
+            <div class="card-text">
+              
+              {{movie.overview}}
+            </div>
           </div>
         </div>
       </div>
