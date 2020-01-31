@@ -3,29 +3,36 @@
     <div class="row">
       <h4>All-time Popular</h4>
     </div>
-
     <div class="row row-cols-1">
       <div class="col" *ngFor="let movie of movies.results">
         <div class="card text-dark">
           <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="card-img-top" alt="...">
           <div class="card-body">
-            <div class="card-title">
-              <h4>
-                {{movie.title}} 
-                <small>{{movie.original_title}}</small>
-                <div>
-                  <span class="badge badge-danger" *ngIf="movie.popularity >= 25"> Smokin' Hot </span> 
-                  <span *ngFor="let movieGenre of movie.genre_ids"> 
-                    <span *ngFor="let genre of genres.genres"> 
-                      <span class="badge badge-primary ml-1" *ngIf="movieGenre==genre.id"> {{genre.name}} </span> 
-                    </span>
-                  </span>
-                </div>
-              </h4>
-            </div>
-            <div class="card-text">
-              {{movie.overview}}
-            </div>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*">
+                <mat-panel-title>
+                  <div class="card-title">
+                    <h4>
+                      {{movie.title}} 
+                      <small>{{movie.original_title}}</small>
+                      <div>
+                        <span class="badge badge-danger" *ngIf="movie.popularity >= 25"> Smokin' Hot </span> 
+                        <span *ngFor="let movieGenre of movie.genre_ids"> 
+                          <span *ngFor="let genre of genres.genres"> 
+                            <span class="badge badge-primary ml-1" *ngIf="movieGenre==genre.id && movieGenre!=16"> 
+                              {{genre.name}} 
+                            </span> 
+                          </span>
+                        </span>
+                      </div>
+                    </h4>
+                  </div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="card-text">
+                {{movie.overview}}
+              </div>
+            </mat-expansion-panel>
           </div>
         </div>
       </div>

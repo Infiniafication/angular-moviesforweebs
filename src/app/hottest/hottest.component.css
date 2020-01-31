@@ -1,8 +1,4 @@
-.card-img {
-  width: 18rem;
-  height: 32rem;
+mat-expansion-panel-header {
+  height: auto!important; 
 }
-
-.card-content {
-  width: 100%;
-}
+  
