@@ -4,14 +4,14 @@
       <h4>All-time Popular</h4>
     </div>
     <div class="row row-cols-1">
-      <div class="col" *ngFor="let movie of movies.results">
-        <div class="card text-dark">
+      <div class="col" *ngFor="let movie of movies.results" matRipple [matRippleTrigger]="trigger">
+        <div class="row text-dark">
           <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="card-img-top" alt="...">
-          <div class="card-body clearfix">
+          <div class="row clearfix">
             <mat-expansion-panel>
               <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*">
-                <mat-panel-title>
-                  <div class="card-title">
+                <mat-panel-title #trigger>
+                  <div class="p-2">
                     <h4>
                       {{movie.title}}
                       <small>{{movie.original_title}}</small>
@@ -28,7 +28,7 @@
                     </h4>
                   </div> <!-- card-title -->
                 </mat-panel-title>
-                <div class="float-right">
+                <div class="float-right p-2">
                   <mat-panel-description>
                     <span class="badge badge-pill badge-success align-text-bottom"> 
                       <h1 class="p-1"> {{movie.vote_average}} </h1> 
@@ -36,7 +36,7 @@
                   </mat-panel-description>
                 </div> <!-- float-right -->
               </mat-expansion-panel-header>
-              <div class="card-text">
+              <div class="pl-2 pr-2">
                 <p><strong>Release date: {{movie.release_date}}</strong></p>
                 <p>{{movie.overview}}</p>
               </div>
