@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Config, ConfigService } from '../config.service';
 
@@ -8,7 +8,7 @@ import { Config, ConfigService } from '../config.service';
   styleUrls: ['./hottest.component.css']
 })
 export class HottestComponent implements OnInit {
-  constructor(private configService: ConfigService, private ngZone: NgZone) { }
+  constructor( private configService: ConfigService ) { }
 
   movies: Config;
   genres: String[][];
@@ -30,8 +30,6 @@ export class HottestComponent implements OnInit {
   }
 
   onFilterChange(event) {
-    console.log(event.source.value, event.source.selected);
-    // console.log(event.source.value.length);
     if(event.source.selected)
     {
       this.configService.movieBuilder(event.source.value);
