@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Config, ConfigService } from '../config.service';
 
 @Component({
@@ -26,4 +27,7 @@ export class HottestComponent implements OnInit {
     this.configService.getGenre().subscribe((data) => this.genres = data);
   }
 
+  filters = new FormControl();
+  filterList: string[] = ['> 2020','2019', '2018', '2017', '2016', '2015', '< 2014'];
+  selected = 'All';
 }

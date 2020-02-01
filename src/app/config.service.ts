@@ -46,6 +46,10 @@ export class ConfigService {
   configUrl: string = 'https://api.themoviedb.org/3/discover/movie?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16&with_original_language=ja';
 
   genreUrl: string = 'https://api.themoviedb.org/3/genre/movie/list?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US';
+
+  //https://api.themoviedb.org/3/discover/movie?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2019|2018|2017&with_genres=16&with_original_language=ja
+
+  //https://api.themoviedb.org/3/discover/movie?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=2018-01-01&with_genres=16&with_original_language=ja
   
   generateURL() {
 

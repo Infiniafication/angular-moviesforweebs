@@ -1,7 +1,17 @@
 <div class="row">
   <div class="col">
     <div class="row">
-      <h4>All-time Popular</h4>
+      <div class="col">
+        <h2>20 Most Popular {{selected}} </h2>
+      </div>
+      <div class="col float-right text-right">
+        <mat-form-field>
+          <mat-label>Year</mat-label>
+          <mat-select [formControl]="filters" [(value)]="selected" multiple>
+            <mat-option *ngFor="let filter of filterList" [value]="filter">{{filter}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
     <div class="row row-cols-1">
       <div class="col" *ngFor="let movie of movies.results" matRipple [matRippleTrigger]="trigger">
