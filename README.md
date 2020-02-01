@@ -15,9 +15,8 @@ Tentative (requires experimentation):
 
 -------- Personal notes below this line --------
 TODO:
-1. Add release year.
-2. Make banner fancy.
-3. Try implementing Material Angular.
+1. Make banner fancy.
+2. Add image gallery.
 
 Maybes:
 1. Details page
