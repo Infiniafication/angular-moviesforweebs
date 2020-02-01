@@ -7,7 +7,7 @@
       <div class="col float-right text-right">
         <mat-form-field>
           <mat-label>Year</mat-label>
-          <mat-select [formControl]="filters" [(value)]="selected" multiple>
+          <mat-select [formControl]="filters" [(value)]="selected">
             <mat-option *ngFor="let filter of filterList" [value]="filter" (onSelectionChange)="onFilterChange($event)">{{filter}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -16,7 +16,7 @@
     <div class="row row-cols-1">
       <div class="col" *ngFor="let movie of movies.results" matRipple [matRippleTrigger]="trigger">
         <div class="row text-dark">
-          <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="card-img-top" alt="...">
+          <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="card-img-top" alt="movie.title">
           <div class="row clearfix">
             <mat-expansion-panel>
               <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*">
@@ -26,7 +26,7 @@
                       {{movie.title}}
                       <small>{{movie.original_title}}</small>
                       <div>
-                        <span class="badge badge-danger" *ngIf="movie.popularity >= 20"> Smokin' Hot </span> 
+                        <span class="badge badge-danger" *ngIf="movie.popularity >= 15"> Smokin' Hot </span> 
                         <span *ngFor="let movieGenre of movie.genre_ids"> 
                           <span *ngFor="let genre of genres.genres"> 
                             <span class="badge badge-primary ml-1" *ngIf="movieGenre==genre.id && movieGenre!=16"> 

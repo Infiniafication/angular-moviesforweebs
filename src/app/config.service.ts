@@ -43,16 +43,34 @@ export class ConfigService {
   constructor(private http: HttpClient) { }
 
   // TODO: Refactor all hardcoded URLs
+  defaultURL: string = 'https://api.themoviedb.org/3/';
+  apiKey: string = '?api_key=5af1770915237b38ad8957ddff1b912f';
+
   configUrl: string = 'https://api.themoviedb.org/3/discover/movie?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16&with_original_language=ja';
 
   genreUrl: string = 'https://api.themoviedb.org/3/genre/movie/list?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US';
 
-  //https://api.themoviedb.org/3/discover/movie?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2019|2018|2017&with_genres=16&with_original_language=ja
+  movieBuilder(year: string): void {
+    var filterYear: string;
+    
+    if (year.length>4) // to handle date ranges
+    {
+      if(year.substr(0, 1) == '>')
+      {
+        filterYear = '&primary_release_date.gte=' + year.substring(2) + '-01-01';
+      }
+      else if(year.substr(0, 1) == '<')
+      {
+        filterYear = '&primary_release_date.lte=' + year.substring(2) + '-12-31';
+      }
+    }
+    else if (year.length==4) // to handle specific year
+    {
+      filterYear = '&primary_release_year=' + year;
+    }
 
-  //https://api.themoviedb.org/3/discover/movie?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=2018-01-01&with_genres=16&with_original_language=ja
-  
-  generateURL() {
-
+    this.configUrl = this.defaultURL + 'discover/movie' + this.apiKey + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16&with_original_language=ja' + filterYear;
+    //console.log(this.configUrl);
   }
 
   getConfig() {
