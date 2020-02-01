@@ -8,6 +8,11 @@ import { Config, ConfigService } from '../config.service';
   styleUrls: ['./hottest.component.css']
 })
 export class HottestComponent implements OnInit {
+  movies: Config;
+  genres: String[][];
+  filters = new FormControl();
+  filterList: string[] = ['> 2020','2019', '2018', '2017', '2016', '2015', '< 2014'];
+  selected = 'All';
 
   constructor(private configService: ConfigService) { }
 
@@ -16,8 +21,7 @@ export class HottestComponent implements OnInit {
     this.getGenres();
   }
 
-  movies: Config;
-  genres: String[][];
+
 
   getMovies() {
     this.configService.getConfig().subscribe((data) => this.movies = data);
@@ -27,7 +31,9 @@ export class HottestComponent implements OnInit {
     this.configService.getGenre().subscribe((data) => this.genres = data);
   }
 
-  filters = new FormControl();
-  filterList: string[] = ['> 2020','2019', '2018', '2017', '2016', '2015', '< 2014'];
-  selected = 'All';
+  onFilterChange(event) {
+    console.log(event.source.value, event.source.selected);
+  }
+
+
 }

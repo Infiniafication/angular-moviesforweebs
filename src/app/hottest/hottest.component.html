@@ -2,13 +2,13 @@
   <div class="col">
     <div class="row">
       <div class="col">
-        <h2>20 Most Popular {{selected}} </h2>
+        <h2>20 Most Popular</h2>
       </div>
       <div class="col float-right text-right">
         <mat-form-field>
           <mat-label>Year</mat-label>
           <mat-select [formControl]="filters" [(value)]="selected" multiple>
-            <mat-option *ngFor="let filter of filterList" [value]="filter">{{filter}}</mat-option>
+            <mat-option *ngFor="let filter of filterList" [value]="filter" (onSelectionChange)="onFilterChange($event)">{{filter}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
