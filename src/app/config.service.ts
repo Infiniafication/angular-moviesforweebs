@@ -9,6 +9,14 @@ export interface Config {
   results: string[];
 }
 
+export interface List {
+  created_by: string;
+  description: string;
+  favorite_count: number;
+  id: number;
+  items: string[];
+}
+
 @Injectable()
 export class ConfigService {
 
@@ -21,6 +29,8 @@ export class ConfigService {
   configUrl: string = 'https://api.themoviedb.org/3/discover/movie?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16&with_original_language=ja';
 
   genreUrl: string = 'https://api.themoviedb.org/3/genre/movie/list?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US';
+
+  bannerUrl: string = 'https://api.themoviedb.org/3/list/131911?api_key=5af1770915237b38ad8957ddff1b912f&language=en-US'
 
   movieBuilder(year: string): void {
     var filterYear: string;
@@ -51,6 +61,10 @@ export class ConfigService {
 
   getGenre() {
     return this.http.get<String[][]>(this.genreUrl);
+  }
+
+  getBanner() {
+    return this.http.get<List>(this.bannerUrl);
   }
 
 }

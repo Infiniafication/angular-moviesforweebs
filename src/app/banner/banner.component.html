@@ -1,33 +1,14 @@
 <div class="row" id="banner">
   <h1 class="display-3"> {{ title }} </h1>
 </div>
-
-<ngb-carousel *ngIf="images">
-  <ng-template ngbSlide>
+<ngb-carousel *ngIf="movieList">
+  <ng-template ngbSlide *ngFor="let movie of movieList.items">
     <div class="picsum-img-wrapper">
-      <img [src]="images[0]" class="d-block w-100" alt="Random first slide">
+      <img src="https://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" class="d-block w-100" alt="Random first slide">
     </div>
     <div class="carousel-caption">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[1]" class="d-block w-100" alt="Random second slide">
-    </div>
-    <div class="carousel-caption">
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[2]" class="d-block w-100" alt="Random third slide">
-    </div>
-    <div class="carousel-caption">
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h4><strong>{{movie.title}}</strong></h4>
+      <p>Release date: {{movie.release_date}}</p>
     </div>
   </ng-template>
 </ngb-carousel>

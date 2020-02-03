@@ -9,7 +9,7 @@
 </nav>
 <div class="row">
   <div class="col">
-    <div class="row row-cols-1 row-cols-lg-2">
+    <div class="row row-cols-1 row-cols-lg-2" *ngIf="movies">
       <div class="col pl-3 pr-3 pb-2" *ngFor="let movie of movies.results" matRipple [matRippleTrigger]="trigger">
         <div class="row text-dark">
           <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="card-img-top" alt="movie.title">
@@ -21,7 +21,7 @@
                     <h4>
                       {{movie.title}}
                       <small>{{movie.original_title}}</small>
-                      <div>
+                      <div *ngIf="genres">
                         <span class="badge badge-danger" *ngIf="movie.popularity >= 15"> Smokin' Hot </span> 
                         <span *ngFor="let movieGenre of movie.genre_ids"> 
                           <span *ngFor="let genre of genres.genres"> 
