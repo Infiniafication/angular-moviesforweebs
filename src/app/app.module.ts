@@ -7,6 +7,8 @@ import { MatExpansionModule } from '@angular/material';
 import { MatRippleModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -24,6 +26,8 @@ import { ConfigService } from './config.service';
     MatRippleModule,
     MatInputModule,
     MatSelectModule,
+    MatToolbarModule,
+    MatIconModule,
     NgbModule
   ],
   declarations: [ AppComponent, BannerComponent, HottestComponent ],

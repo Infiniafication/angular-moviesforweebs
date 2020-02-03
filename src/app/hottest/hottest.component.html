@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light bg-light max-vw-50" [class.sticky]="sticky" #stickyNav>
-  <a class="navbar-brand display-4" href="#banner">20 Most Popular</a>
+  <a class="navbar-brand display-4" href="#banner"><strong class=""><h2> <mat-icon class="text-primary mr-3" aria-hidden="false" aria-label="Back to Top" *ngIf="sticky">arrow_upward</mat-icon> 20 Most Popular</h2></strong></a>
   <mat-form-field>
     <mat-label>Year</mat-label>
     <mat-select [formControl]="filters" [(value)]="selected">
