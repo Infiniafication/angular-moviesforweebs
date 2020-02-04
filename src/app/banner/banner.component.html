@@ -1,10 +1,10 @@
-<div class="row" id="banner">
-  <h1 class="display-3"> {{ title }} </h1>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-3">
+  <h1 class="navbar-brand text-uppercase">{{ title }} <small class="text-uppercase font-weight-lighter">Only the hottest anime movies!</small></h1>
+</nav>
 <ngb-carousel *ngIf="movieList">
   <ng-template ngbSlide *ngFor="let movie of movieList.items">
     <div class="picsum-img-wrapper">
-      <img src="https://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" class="d-block w-100" alt="Random first slide">
+      <img src="https://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" class="d-block w-100" alt="{{movie.title}}">
     </div>
     <div class="carousel-caption">
       <h4 class="text-outline-black-2"><strong>{{movie.title}}</strong></h4>
